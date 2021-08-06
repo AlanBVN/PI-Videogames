@@ -30,10 +30,10 @@ router.post("/", async (req, res, next) => {
 //________________________________________________________________//
 
 router.get("/:idVideogame", async (req, res, next) => {
-  const { idVideogame } = req.params;
+  try {
+    const { idVideogame } = req.params;
 
-  if (validate(idVideogame)) {
-    try {
+    if (validate(idVideogame)) {
       let findByDb = await Videogame.findByPk(idVideogame, {
         include: Genre,
       });
@@ -43,11 +43,7 @@ router.get("/:idVideogame", async (req, res, next) => {
       } else {
         res.send("No videogames found");
       }
-    } catch (error) {
-      next(error);
-    }
-  } else if (!validate(idVideogame)) {
-    try {
+    } else if (!validate(idVideogame)) {
       let apiGames = await axios.get(
         `https://api.rawg.io/api/games/${idVideogame}?key=7cd9a2674c864e9e827d633e3bd06620`
       );
@@ -78,11 +74,11 @@ router.get("/:idVideogame", async (req, res, next) => {
       } else {
         res.send("No videogames found");
       }
-    } catch (error) {
-      next(error);
+    } else {
+      res.json("No videogames found");
     }
-  } else {
-    res.json("No videogames found");
+  } catch (error) {
+    next(error);
   }
 });
 

@@ -6,10 +6,10 @@ const router = Router();
 
 router.get("/", async (req, res) => {
 
-  let allGenres = await Genre.findAll();
+  try {
+    let allGenres = await Genre.findAll();
 
-  if (!allGenres.length) {
-    try {
+    if (!allGenres.length) {
       const apiGenres = await axios.get(
         "https://api.rawg.io/api/genres?key=7cd9a2674c864e9e827d633e3bd06620"
       );
@@ -27,14 +27,14 @@ router.get("/", async (req, res) => {
 
       const allGenres = await Genre.bulkCreate(apiData);
       res.json(allGenres);
-    } catch (error) {
-      res.json(error);
+    } else {
+      let allGenresMap = allGenres.map((r) => {
+        return { id: r.id, name: r.name };
+      });
+      res.json(allGenresMap);
     }
-  } else {
-    let allGenresMap = allGenres.map((r) => {
-      return { id: r.id, name: r.name };
-    });
-    res.json(allGenresMap);
+  } catch (error) {
+    next(error);
   }
 
 });
