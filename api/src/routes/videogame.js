@@ -6,7 +6,7 @@ var validate = require("uuid-validate");
 
 const router = Router();
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   ////videogame
   const { name, description, released, rating, platforms, genres } = req.body;
 
@@ -23,13 +23,13 @@ router.post("/", async (req, res) => {
     await newGame.addGenres(genres);
     res.json(newGame);
   } catch (error) {
-    res.json(error);
+    next(error);
   }
 });
 
 //________________________________________________________________//
 
-router.get("/:idVideogame", async (req, res) => {
+router.get("/:idVideogame", async (req, res, next) => {
   const { idVideogame } = req.params;
 
   if (validate(idVideogame)) {
@@ -38,9 +38,13 @@ router.get("/:idVideogame", async (req, res) => {
         include: Genre,
       });
 
-      return findByDb ? res.json(findByDb) : res.send("No videogames found");
+      if (findByDb) {
+        res.json(findByDb);
+      } else {
+        res.send("No videogames found");
+      }
     } catch (error) {
-      res.send(error);
+      next(error);
     }
   } else if (!validate(idVideogame)) {
     try {
@@ -69,9 +73,13 @@ router.get("/:idVideogame", async (req, res) => {
         rating: rating,
         platforms: platforms,
       };
-      return obj ? res.json(obj) : res.send("No videogames found");
+      if (obj) {
+        res.json(obj);
+      } else {
+        res.send("No videogames found");
+      }
     } catch (error) {
-      res.send(error);
+      next(error);
     }
   } else {
     res.json("No videogames found");
