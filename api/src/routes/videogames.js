@@ -4,7 +4,7 @@ const { Videogame, Genre } = require("../db.js");
 const router = Router();
 const { Op } = require("sequelize");
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   const { name } = req.query;
 
   try {

@@ -4,8 +4,7 @@ const { Genre } = require("../db.js");
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-
+router.get("/", async (req, res, next) => {
   try {
     let allGenres = await Genre.findAll();
 
@@ -36,7 +35,6 @@ router.get("/", async (req, res) => {
   } catch (error) {
     next(error);
   }
-
 });
 
 
