@@ -14,13 +14,20 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_GENRES:
-      return {};
+      return {
+
+      };
     case GET_GAMES_ID:
-      return {};
+      return {
+
+      };
     case GET_ALL_VIDEOGAMES:
-      return {};
+      return {
+             ...state, videogames: action.payload
+      };
     case GET_GAMES_QUERY:
-      return {};
+      return {
+      };
     default:
       return state;
   }
