@@ -1,7 +1,9 @@
-    
 .container {
-  grid-template-columns: 100px 50px 100px;
-  grid-template-rows: 80px auto 80px; 
-  column-gap: 10px;
-  row-gap: 15px;
+  display: grid;
+  grid-template-rows: 370px 370px 370px;
+  grid-template-columns: 300px 300px 300px;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
 }
+
