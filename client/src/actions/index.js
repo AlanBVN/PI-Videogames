@@ -3,6 +3,7 @@ export const GET_GAMES_QUERY = "GET_GAMES_QUERY";
 export const GET_GAMES_ID = "GET_GAMES_ID";
 export const GET_GENRES = "GET_GENRES";
 export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
+export const POST_VIDEOGAME = "POST_VIDEOGAME";
 
 export function getGamesByQuery(title) {
   return async function (dispatch) {
@@ -27,6 +28,13 @@ export function getGamesGenre() {
     let getGenre = await axios.get(`http://localhost:3001/genres`);
     let getGenreData = getGenre.data;
     return dispatch({ type: GET_GENRES, payload: getGenreData });
+  };
+}
+export function postVideogame(info) {
+  return async function (dispatch) {
+    let postGame = await axios.post(`http://localhost:3001/videogame`, info);
+    let postGameData = postGame.data;
+    return dispatch({ type: POST_VIDEOGAME, payload: postGameData });
   };
 }
 export function getAllVideogames() {

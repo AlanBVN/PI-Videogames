@@ -8,7 +8,8 @@ export default function GameCard(props) {
         <div className="gameCard">
           <div className="Name">{props.name}</div>
         </div>
-        <img className="img" src={props.imagen} alt={props.name} />
+        <img className="img" src={props.image} alt={props.name} />
+        <div className="Rating">{props.rating}</div>
         <div className="Genres">{props.genres?.join(", ")}</div>
       </div>
     </>

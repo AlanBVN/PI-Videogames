@@ -8,8 +8,10 @@ export default function LandingPage() {
   return (
     <div>
       <Link to="/home">
-        <button onClick={() => dispatch(getAllVideogames())}>Home!</button>
+        <button>Home!</button>
       </Link>
     </div>
   );
 }
+
+//onClick={() => dispatch(getAllVideogames())}

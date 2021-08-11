@@ -16,6 +16,13 @@ bottom: -15px;
    padding: 12px; 
    margin-bottom: 20px
 }
+.Rating{
+position: relative;
+bottom: -15px;
+   color: rgb(173, 192, 3);
+   font-size: 13px;
+   padding: 2px; 
+}
 
 .Name {    
     display: inline-block;

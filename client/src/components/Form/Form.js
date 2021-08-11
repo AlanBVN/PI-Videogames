@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { getGamesGenre } from "../../actions";
+import { getGamesGenre, postVideogame } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export default function Form() {
   const [input, setInput] = useState({
@@ -9,9 +10,12 @@ export default function Form() {
     released: "",
     rating: "",
     platforms: "",
+    image: "",
     genres: [],
   });
 
+  console.log(input);
+  const history = useHistory();
   const dispatch = useDispatch();
   const genresState = useSelector((store) => store.genres);
 
@@ -26,8 +30,18 @@ export default function Form() {
     });
   };
 
+  const handleGenres = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: Array.from(e.target.selectedOptions).map((p) => p.value),
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(postVideogame(input));
+    alert("Game submitted");
+    history.push("/home");
   };
 
   return (
@@ -40,6 +54,7 @@ export default function Form() {
             name="name"
             onChange={handleChange}
             value={input.name}
+            required
           />
         </div>
         <div>
@@ -49,21 +64,34 @@ export default function Form() {
             name="description"
             onChange={handleChange}
             value={input.description}
+            required
           />
         </div>
         <div>
           <label>Released</label>
           <input
-            type="text"
+            type="date"
             name="released"
             onChange={handleChange}
             value={input.released}
           />
         </div>
         <div>
-          <label>Rating (0 - 5)</label>
+          <label>Image</label>
           <input
             type="text"
+            name="image"
+            onChange={handleChange}
+            value={input.image}
+            required
+          />
+        </div>
+        <div>
+          <label>Rating (0 - 5)</label>
+          <input
+            type="number"
+            min="0"
+            max="5"
             name="rating"
             onChange={handleChange}
             value={input.rating}
@@ -71,7 +99,12 @@ export default function Form() {
         </div>
         <div>
           <label> Genres </label>
-          <select name="genres">
+          <select
+            name="genres"
+            multiple="multiple"
+            onChange={handleGenres}
+            required
+          >
             {genresState.map((m) => {
               return <option value={m.id}> {m.name} </option>;
             })}
@@ -84,6 +117,7 @@ export default function Form() {
             name="platforms"
             onChange={handleChange}
             value={input.platforms}
+            required
           />
         </div>
         <div>
