@@ -1,17 +1,20 @@
-import "./Pagination.css";
+//import "./Pagination.css";
 
-function Pagination({ recipePerPage, totalRecipes, paginate }) {
-  const pages = [];
+function Pagination({ postsPerPage, totalPosts, setCurrentPage }) {
+  const p = [];
 
-  for (let i = 1; i <= Math.ceil(totalRecipes / recipePerPage); i++) {
-    pages.push(i);
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    p.push(i);
+  }
+  function paginate(number) {
+    setCurrentPage(number);
   }
 
   return (
-    <nav className="nav_page">
-      <div className="pagination">
-        {pages.map((num) => (
-          <button onClick={(e) => paginate(e, num)}>{num}</button>
+    <nav>
+      <div>
+        {p.map((num) => (
+          <button onClick={() => paginate(num)}>{num}</button>
         ))}
       </div>
     </nav>

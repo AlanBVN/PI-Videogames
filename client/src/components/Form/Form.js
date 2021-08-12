@@ -59,8 +59,7 @@ export default function Form() {
         </div>
         <div>
           <label>Description</label>
-          <input
-            type="text"
+          <textarea
             name="description"
             onChange={handleChange}
             value={input.description}

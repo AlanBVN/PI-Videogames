@@ -4,6 +4,8 @@ export const GET_GAMES_ID = "GET_GAMES_ID";
 export const GET_GENRES = "GET_GENRES";
 export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
 export const POST_VIDEOGAME = "POST_VIDEOGAME";
+export const ORDER_FILTER = "ORDER_FILTER";
+export const FILTER_GENRES = "FILTER_GENRES";
 
 export function getGamesByQuery(title) {
   return async function (dispatch) {
@@ -45,5 +47,17 @@ export function getAllVideogames() {
       type: GET_ALL_VIDEOGAMES,
       payload: getAllVideogamesData,
     });
+  };
+}
+
+export function orderFilter(type) {
+  return async function (dispatch) {
+    return dispatch({ type: ORDER_FILTER, payload: type });
+  };
+}
+
+export function filterGenres(data) {
+  return async function (dispatch) {
+    return dispatch({ type: FILTER_GENRES, payload: data });
   };
 }

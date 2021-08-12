@@ -1,30 +1,30 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllVideogames } from "../../actions";
+import { useSelector } from "react-redux";
 import GameCard from "../GameCard/GameCard";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import Pagination from "../Pagination/Pagination";
+import Filters from "../Filters/Filters";
 
 export default function Home() {
-  const dispatch = useDispatch();
   const games = useSelector((store) => store.videogames);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(games);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-
-  useEffect(() => {
-    dispatch(getAllVideogames);
-    setPosts(games);
-  }, []);
+  const [postsPerPage] = useState(9);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  useEffect(() => {
+    setPosts([...games]);
+  }, [games]);
 
   return (
     <div>
       <div>
-        <span>Lista de juegos </span>
+        <Filters />
         <div className="container">
           {currentPosts.map((game) => (
             <div key={game.id}>
@@ -39,6 +39,11 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={posts.length}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </div>
   );
