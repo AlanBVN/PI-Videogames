@@ -66,10 +66,9 @@ function rootReducer(state = initialState, action) {
         case "A-Z":
           return {
             ...state,
-            filteredGames: [
-              ...state.filteredGames].sort((a, b) =>
-                a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-              ),
+            filteredGames: [...state.filteredGames].sort((a, b) =>
+              a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+            ),
             orderedBy: action.payload,
           };
         case "Z-A":

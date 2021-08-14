@@ -16,8 +16,8 @@ export default function Filters() {
   }
   
   function handleGenres(e) {
-    dispatch(filterGenres(e.target.value));
     e.preventDefault();
+    dispatch(filterGenres(e.target.value));
   }
 
   return (
