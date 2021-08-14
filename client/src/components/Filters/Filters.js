@@ -14,10 +14,10 @@ export default function Filters() {
     e.preventDefault();
     dispatch(orderFilter(e.target.value));
   }
-
+  
   function handleGenres(e) {
-    e.preventDefault();
     dispatch(filterGenres(e.target.value));
+    e.preventDefault();
   }
 
   return (
@@ -40,7 +40,7 @@ export default function Filters() {
       <select name="filters" onChange={handleGenres}>
         <option value="ALL">DEFAULT</option>
         <optgroup label="Genres">
-          {genres.map((g) => (
+          {genres?.map((g) => (
             <option value={g.name}>{g.name}</option>
           ))}
         </optgroup>

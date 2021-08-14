@@ -45,65 +45,66 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: action.payload,
+        filteredGames: action.payload,
       };
     case FILTER_GENRES:
+      if(action.payload === "ALL"){
+        return {
+          ...state,
+          filteredGames: state.videogames,
+          filteredBy: action.payload,
+        };}else { 
       return {
         ...state,
         filteredGames: state.videogames.filter((r) =>
           r.genres.includes(action.payload)
         ),
         filteredBy: action.payload,
-      };
+      }}
     case ORDER_FILTER:
       switch (action.payload) {
         case "A-Z":
           return {
             ...state,
             filteredGames: [
-              ...state.filteredGames.sort((a, b) =>
+              ...state.filteredGames].sort((a, b) =>
                 a.name > b.name ? 1 : b.name > a.name ? -1 : 0
               ),
-            ],
             orderedBy: action.payload,
           };
         case "Z-A":
           return {
             ...state,
-            filteredGames: [
-              ...state.filteredGames.sort((a, b) =>
-                a.name < b.name ? 1 : b.name < a.name ? -1 : 0
-              ),
-            ],
+            filteredGames: [...state.filteredGames].sort((a, b) =>
+              a.name < b.name ? 1 : b.name < a.name ? -1 : 0
+            ),
+
             orderedBy: action.payload,
           };
         case "ASC":
           return {
             ...state,
-            filteredGames: [
-              ...state.filteredGames.sort((a, b) =>
-                a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0
-              ),
-            ],
+            filteredGames: [...state.filteredGames].sort((a, b) =>
+              a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0
+            ),
+
             orderedBy: action.payload,
           };
         case "DESC":
           return {
             ...state,
-            filteredGames: [
-              ...state.filteredGames.sort((a, b) =>
-                a.rating > b.rating ? 1 : b.rating > a.rating ? -1 : 0
-              ),
-            ],
+            filteredGames: [...state.filteredGames].sort((a, b) =>
+              a.rating > b.rating ? 1 : b.rating > a.rating ? -1 : 0
+            ),
+
             orderedBy: action.payload,
           };
-        case "ALL":
-          return {
-            ...state,
-            filteredGames: [...state, state.filteredGames],
-            orderedBy: action.payload,
-          };
+           case "ALL":
+                    return {...state, filteredGames: state.videogames,
+                    orderedBy: action.payload
+                } 
         default:
-          return state.filteredGames;
+          return state.videogames;
       }
     default:
       return state;

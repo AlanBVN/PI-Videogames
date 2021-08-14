@@ -25,7 +25,7 @@ export default function Home() {
     if (!videogames.length) {
       dispatch(getAllVideogames());
     }
-  });
+  }, []);
 
   useEffect(() => {
     if (filteredBy === "ALL" && orderBy === "ALL") {
