@@ -1,25 +1,39 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import GameCard from "../GameCard/GameCard";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";
+import { getAllVideogames } from "../../actions";
 
 export default function Home() {
-  const games = useSelector((store) => store.videogames);
-  const [posts, setPosts] = useState(games);
+  const videogames = useSelector((store) => store.videogames);
+  const filteredGames = useSelector((store) => store.filteredGames);
+  const [posts, setPosts] = useState(videogames);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
+  const orderBy = useSelector((state) => state.orderedBy);
+  const filteredBy = useSelector((state) => state.filteredBy);
+  const dispatch = useDispatch();
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   useEffect(() => {
-    setPosts([...games]);
-  }, [games]);
+    if (!videogames.length) {
+      dispatch(getAllVideogames());
+    }
+  });
+
+  useEffect(() => {
+    if (filteredBy === "ALL" && orderBy === "ALL") {
+      setPosts(videogames);
+    } else {
+      setPosts(filteredGames);
+    }
+  }, [videogames, filteredGames, filteredBy, orderBy]);
 
   return (
     <div>

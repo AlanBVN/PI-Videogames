@@ -2,14 +2,18 @@ import "./Nav.css";
 import { React, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getGamesByQuery, getAllVideogames } from "../../actions";
+import {
+  getGamesByQuery,
+  getAllVideogames,
+  filterGenres,
+  orderFilter,
+} from "../../actions";
 import { Link } from "react-router-dom";
-//import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [search, setSearch] = useState("");
 
-  const gamesSearch = useSelector((store) => store.searchresults);
+  //const gamesSearch = useSelector((store) => store.searchresults);
 
   const dispatch = useDispatch();
   const history = useHistory();

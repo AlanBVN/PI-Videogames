@@ -1,16 +1,10 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  filterGenres,
-  getAllVideogames,
-  getGamesGenre,
-  orderFilter,
-} from "../../actions";
+import { filterGenres, getGamesGenre, orderFilter } from "../../actions";
 
 export default function Filters() {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
-  const games = useSelector((state) => state.videogames);
 
   useEffect(() => {
     dispatch(getGamesGenre());
@@ -21,9 +15,8 @@ export default function Filters() {
     dispatch(orderFilter(e.target.value));
   }
 
-  async function handleGenres(e) {
+  function handleGenres(e) {
     e.preventDefault();
-    await dispatch(getAllVideogames());
     dispatch(filterGenres(e.target.value));
   }
 
@@ -31,6 +24,7 @@ export default function Filters() {
     <div>
       <label>Order by: </label>
       <select name="orders" onChange={handleChange}>
+        <option value="ALL">DEFAULT</option>
         <optgroup label="Alphabetic">
           <option value="A-Z">A - Z</option>
           <option value="Z-A">Z - A</option>
@@ -44,6 +38,7 @@ export default function Filters() {
 
       <label>Order by genres: </label>
       <select name="filters" onChange={handleGenres}>
+        <option value="ALL">DEFAULT</option>
         <optgroup label="Genres">
           {genres.map((g) => (
             <option value={g.name}>{g.name}</option>
