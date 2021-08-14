@@ -35,11 +35,15 @@ router.get("/", async (req, res, next) => {
 
       let finalData = allVideogames.map((r) => {
         return {
+          id: r.id,
           name: r.name,
-          imagen: r.background_image,
+          image: r.background_image ? r.background_image : r.image,
+          rating: Math.round(r.rating),
           genres: r.genres.map((r) => r.name),
         };
       });
+
+      //sliceData = finalData.slice(0, 9);
 
       res.json(finalData);
     } else {
@@ -51,8 +55,10 @@ router.get("/", async (req, res, next) => {
 
       const searchAllNames = allVideogamesData.map((r) => {
         return {
+          id: r.id,
           name: r.name,
           image: r.background_image,
+          rating: Math.round(r.rating),
           genres: r.genres.map((r) => r.name),
         };
       });
@@ -67,13 +73,17 @@ router.get("/", async (req, res, next) => {
       // const filterDbNames = searchDbNames.filter((r) => r.name.includes(name));
       const onlyNameDb = searchDbNames.map((r) => {
         return {
+          id: r.id,
           name: r.name,
-          image: r.background_image,
+          image: r.image,
+          rating: Math.round(r.rating),
           genres: r.genres.map((r) => r.name),
         };
       });
 
       const allNames = onlyNameDb.concat(searchAllNames);
+
+      //sliceRender = allNames.slice(0,9)
 
       if (allNames.length > 0) {
         res.send(allNames);

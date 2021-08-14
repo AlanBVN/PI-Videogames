@@ -8,7 +8,8 @@ const router = Router();
 
 router.post("/", async (req, res, next) => {
   ////videogame
-  const { name, description, released, rating, platforms, genres } = req.body;
+  const { name, description, released, rating, platforms, genres, image } =
+    req.body;
 
   try {
     const newGame = await Videogame.create({
@@ -18,6 +19,7 @@ router.post("/", async (req, res, next) => {
       released,
       rating,
       platforms,
+      image,
     });
 
     await newGame.addGenres(genres);
@@ -38,8 +40,31 @@ router.get("/:idVideogame", async (req, res, next) => {
         include: Genre,
       });
 
+      const {
+        id,
+        name,
+        image,
+        genres,
+        description,
+        released,
+        rating,
+        platforms,
+      } = findByDb;
+
+      const fixedDate = released.toLocaleDateString();
+      const mappedByDb = {
+        id,
+        name,
+        image,
+        genres: genres.map((r) => r.name),
+        description,
+        released: fixedDate,
+        rating: Math.round(rating),
+        platforms,
+      };
+
       if (findByDb) {
-        res.json(findByDb);
+        res.json(mappedByDb);
       } else {
         res.send("No videogames found");
       }
@@ -51,23 +76,29 @@ router.get("/:idVideogame", async (req, res, next) => {
       let apiGamesData = apiGames.data;
 
       const {
+        id,
         background_image,
         name,
         genres,
-        description,
+        description_raw,
         released,
         rating,
         platforms,
       } = apiGamesData;
 
+      const platformNames = platforms.map((r) => r.platform.name); //esto lo hago para poder tener las plataformas en un string separados por coma.
+      const platformsFinal = platformNames.join(", ");
+      //.toString();
+
       const obj = {
+        id: id,
         name: name,
-        background_image: background_image,
-        genres: genres,
-        description: description,
+        image: background_image,
+        genres: genres?.map((r) => r.name),
+        description: description_raw,
         released: released,
-        rating: rating,
-        platforms: platforms,
+        rating: Math.round(rating),
+        platforms: platformsFinal,
       };
       if (obj) {
         res.json(obj);
