@@ -1,78 +1,45 @@
 import "./Nav.css";
 import { React, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getGamesByQuery,
-  getAllVideogames,
-  filterGenres,
-  orderFilter,
-} from "../../actions";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Nav() {
-  const [search, setSearch] = useState("");
-
-  //const gamesSearch = useSelector((store) => store.searchresults);
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!search) {
-      return alert("No estas buscando nada");
-    } else {
-      dispatch(getGamesByQuery(search));
-      history.push("/home");
-    }
-  };
+  const [showLinks, setShowLinks] = useState(false);
 
   return (
     <>
-      <div className="NavBar">
-        <Link to="/home">
-          <span>NAVBAR</span>
-        </Link>
-        <Link to="/addgame">
-          <span>ADD GAME</span>
-        </Link>
-        <button onClick={() => dispatch(getAllVideogames())}>
-          HOME NAVBAR!
-        </button>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="searchInput"
-            onChange={handleChange}
-            value={search}
-          />
-          <input type="submit" value="Search" />
-        </form>
-        {/* <div className="container">
-        {gamesSearch?.map((search) => (
-          <div key={search.id}>
-            <GameCard
-              name={search.name}
-              imagen={search.image}
-              genres={search.genres}
-            />
+      <div className="body">
+        <nav>
+          <div className="logo-nav">
+            <h3>theGumers</h3>
           </div>
-        ))}
-      </div> */}
+          <ul className="nav-links">
+            <li>
+              <Link to="/addgame">
+                <span>Add game</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/home">
+                <span>About</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/home">
+                <span>Home</span>
+              </Link>
+            </li>
+            <li>
+              <span>SearchBar</span>
+            </li>
+          </ul>
+          <div className="burger">
+            <div className="line1"></div>
+            <div className="line2"></div>
+            <div className="line3"></div>
+          </div>
+        </nav>
       </div>
     </>
   );
 }
-
-/* tenemos que tener 
-
-- Searchbar
-- Logo
-- AddVideogame
-
-*/
