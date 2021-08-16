@@ -77,15 +77,22 @@ body {
   height: 230px;
   width: 100%;
   max-height: 190px;
-  background-color: #021e39;
+  background-color: #082032;
   display:flex;
   flex-direction: column;
   align-items: center; 
+  z-index:1;
+
 }
 
 .Navbar .leftSide #hidden a {
 margin: 10px;
 font-size: 17px;
+}
+.Navbar .leftSide #hidden a:hover {
+margin: 10px;
+font-size: 17px;
+color: #FF4C29;
 }
 
 }

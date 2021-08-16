@@ -19,7 +19,8 @@ select {
 } 
 
 option {
-    font-weight: 200;
+    font-weight: 300;
+    color: white;
 }
 
 ::placeholder {
@@ -57,12 +58,13 @@ select::-ms-expand{
 }
 
 
-
 select {
     flex: 1;
     padding: 0 .5em;
-    color: #fff;
+    color: rgb(255, 255, 255);
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .select::after{

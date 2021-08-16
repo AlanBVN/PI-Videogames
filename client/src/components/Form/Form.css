@@ -1,0 +1,10 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+        font-family: 'Poppins', sans-serif;
+        padding: 50px;
+        color: white;
+        border: 1px solid black;
+    font-family: 'Poppins', sans-serif;
+
+}

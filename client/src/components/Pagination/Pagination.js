@@ -1,4 +1,4 @@
-//import "./Pagination.css";
+import "./Pagination.css";
 
 function Pagination({ postsPerPage, totalPosts, setCurrentPage }) {
   const p = [];

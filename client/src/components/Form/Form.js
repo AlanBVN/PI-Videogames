@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getGamesGenre, postVideogame } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import "./Form.css";
 
 export default function Form() {
   const [input, setInput] = useState({
@@ -45,7 +46,7 @@ export default function Form() {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name</label>
