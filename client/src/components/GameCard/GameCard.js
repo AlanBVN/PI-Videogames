@@ -1,16 +1,23 @@
 import React from "react";
 import "./GameCard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function GameCard(props) {
   return (
     <>
-      <div className="Container">
-        <div className="gameCard">
-          <div className="Name">{props.name}</div>
+      <div className="card-container">
+        <img className="img-card" src={props.image} alt={props.name} />
+        <div className="card-info">
+          <h3 className="name-txt">{props.name}</h3>
+          <div className="card-rating">
+            <FontAwesomeIcon icon={faStar} />
+            {props.rating}
+          </div>
+          <div className="card-info-text">
+            <span className="genres-txt">{props.genres?.join(" - ")}</span>
+          </div>
         </div>
-        <img className="img" src={props.image} alt={props.name} />
-        <div className="Rating">{props.rating}</div>
-        <div className="Genres">{props.genres?.join(", ")}</div>
       </div>
     </>
   );

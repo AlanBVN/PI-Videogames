@@ -42,7 +42,7 @@ export default function Home() {
         <div className="container">
           {currentPosts.map((game) => (
             <div key={game.id}>
-              <Link to={`/videogame/${game.id}`}>
+              <Link to={`/videogame/${game.id}`} className="link-card">
                 <GameCard
                   name={game.name}
                   image={game.image}

@@ -1,5 +1,7 @@
 import "./SearchBar.css";
 import { React, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getGamesByQuery } from "../../actions";
@@ -27,14 +29,19 @@ export default function SearchBar() {
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form className="search-box" onSubmit={handleSubmit}>
           <input
             type="text"
+            className="search-txt"
             name="searchInput"
+            placeholder="Search some game..."
             onChange={handleChange}
             value={search}
           />
-          <input type="submit" value="Search" />
+
+          <button className="search-btn" type="submit" value="Search">
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </form>
       </div>
     </>
