@@ -70,7 +70,7 @@ export default function Form() {
             <label>Description</label>
             <textarea
               className="textarea"
-              placeholder="description"
+              placeholder="Description of the game..."
               name="description"
               onChange={handleChange}
               value={input.description}

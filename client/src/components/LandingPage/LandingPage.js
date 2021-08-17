@@ -12,9 +12,12 @@ export default function LandingPage() {
 
   return (
     <div className="container-landing">
-      <Link to="/home">
-        <button>Home!</button>
-      </Link>
+      <img src="https://i.imgur.com/GZgOtZV.jpg" alt="aa" />
+      <div className="button-landing">
+        <Link to="/home">
+          <button>Home!</button>
+        </Link>
+      </div>
     </div>
   );
 }

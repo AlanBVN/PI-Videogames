@@ -13,7 +13,7 @@ body {
   background-color: #082032;
   font-family: 'Poppins', sans-serif;
   box-shadow: 0 1px 18px -7px black;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .Navbar .leftSide {
@@ -43,6 +43,15 @@ body {
 
 .Navbar .leftSide #hidden {
   display: flex;
+}
+
+.Navbar .leftSide .nav-links a:hover{
+  color: #dc3d4b;
+  text-decoration: none; 
+  font-size: 17px;
+  margin-left: 15px;
+  font-weight: 700;
+
 }
 
 .Navbar .leftSide .nav-links a{
