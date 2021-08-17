@@ -24,7 +24,6 @@ export default function Filters() {
   return (
     <div className="select-container">
       <div className="select">
-        {/* <div className="text-filters">Order by: </div> */}
         <select name="orders" onChange={handleChange}>
           <option selected disabled>
             Order by...
@@ -36,16 +35,12 @@ export default function Filters() {
           <option value="DESC"> Lower rating</option>
         </select>
       </div>
-
-      {/* <div className="text-filters">Order by genres: </div> */}
       <div className="select2">
         <select classname="order-genres" name="filters" onChange={handleGenres}>
           <option selected disabled>
             Filter by...
           </option>
-
           <option value="ALL">All</option>
-
           {genres?.map((g) => (
             <option value={g.name}>{g.name}</option>
           ))}

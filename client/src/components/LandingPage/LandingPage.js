@@ -11,15 +11,25 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="container-landing">
-      <img src="https://i.imgur.com/GZgOtZV.jpg" alt="aa" />
-      <div className="button-landing">
-        <Link to="/home">
-          <button>Home!</button>
-        </Link>
+    <>
+      <div className="landing-container">
+        <section className="full-page">
+          <div className="full-inner">
+            <div className="content">
+              <h1> Welcome to the site </h1>
+              <Link to="/home">
+                <button className="btn">LETS PLAY!</button>
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }
 
 //onClick={() => dispatch(getAllVideogames())}
+
+<Link to="/home">
+  <button>Home!</button>
+</Link>;

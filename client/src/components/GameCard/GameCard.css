@@ -58,7 +58,6 @@
 .card-container:hover {
 transform: scale(1.05);
 transition: transform .08s ease-in-out;
-
 }
 
 /* img{
