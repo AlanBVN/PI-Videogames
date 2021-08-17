@@ -23,7 +23,7 @@ export default function GameCard(props) {
             {props.rating >= "4" && (
               <FontAwesomeIcon icon={faStar} className="stars" />
             )}
-            {props.rating < "5" && (
+            {props.rating == "5" && (
               <FontAwesomeIcon icon={faStar} className="stars" />
             )}
           </div>

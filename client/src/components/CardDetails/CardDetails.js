@@ -1,49 +1,50 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./CardDetails.css";
 
+// {props.name} {props.image} {props.name} {props.genres?.join(" - ")} {props.description}
+// {props.platforms} {props.released} {props.rating}
 export default function CardDetails(props) {
   return (
     <>
-      <div>
-        <div className="container-detail">
-          <span>
-            <strong>NAME</strong>
-          </span>
-          <div>{props.name}</div>
-          <img className="img-details " src={props.image} alt={props.name} />
-          <div>
-            <span>
-              <strong>GENRES</strong>
-            </span>
-            <div>{props.genres?.join(", ")}</div>
-          </div>
-          <div>
-            <div>
-              <span>
-                <strong>DESCRIPTION: </strong>
-              </span>
-              <i>{props.description}</i>
+      <div className="body-details">
+        <section>
+          <div className="container-details">
+            <div className="left">
+              <img src={props.image} alt="{props.name}" />
+            </div>
+            <div className="right">
+              <div className="content">
+                <h1>{props.name}</h1>
+                <span>Released on {props.released}</span>
+                <p>{props.description}</p>
+                <label>Genres</label>
+                <p>{props.genres?.join(" - ")}</p>
+                <label>Platforms:</label>
+                <p>{props.platforms}</p>
+                <div>
+                  <label>Rating: </label>
+                  {props.rating >= "1" && (
+                    <FontAwesomeIcon icon={faStar} className="stars-details" />
+                  )}
+                  {props.rating >= "2" && (
+                    <FontAwesomeIcon icon={faStar} className="stars-details" />
+                  )}
+                  {props.rating >= "3" && (
+                    <FontAwesomeIcon icon={faStar} className="stars-details" />
+                  )}
+                  {props.rating >= "4" && (
+                    <FontAwesomeIcon icon={faStar} className="stars-details" />
+                  )}
+                  {props.rating == "5" && (
+                    <FontAwesomeIcon icon={faStar} className="stars-details" />
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <span>
-              <strong>PLATFORMS</strong>
-            </span>
-            <div>{props.platforms}</div>
-          </div>
-          <div>
-            <span>
-              <strong>RELEASED</strong>
-            </span>
-            <div>{props.released}</div>
-          </div>
-          <div>
-            <span>
-              <strong>RATING</strong>
-            </span>
-            <div>{props.rating}</div>
-          </div>
-        </div>
+        </section>
       </div>
     </>
   );

@@ -13,7 +13,7 @@ select {
     appearance: none;
     outline: 0;
     border: 0 !important;
-    background: #FF4C29;
+    background: #dc3d4b;
     background-image: none;
 } 
 
@@ -79,7 +79,7 @@ select {
 }
 
 .select:hover::after{
-    color: #FF4C29;
+    color: #dc3d4b;
 }
 .select2::after{
     content: '\25BC';
@@ -95,7 +95,7 @@ select {
 }
 
 .select2:hover::after{
-    color: #FF4C29;
+    color: #dc3d4b;
 }
 
 @media only screen and (max-width: 880px){
