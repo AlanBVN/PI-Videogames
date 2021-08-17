@@ -46,84 +46,107 @@ export default function Form() {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            value={input.name}
-            required
-          />
+    <div className="body-form">
+      <div className="form-container">
+        <div className="title">
+          <h3> Create your game </h3>
         </div>
-        <div>
-          <label>Description</label>
-          <textarea
-            name="description"
-            onChange={handleChange}
-            value={input.description}
-            required
-          />
-        </div>
-        <div>
-          <label>Released</label>
-          <input
-            type="date"
-            name="released"
-            onChange={handleChange}
-            value={input.released}
-          />
-        </div>
-        <div>
-          <label>Image</label>
-          <input
-            type="text"
-            name="image"
-            onChange={handleChange}
-            value={input.image}
-            required
-          />
-        </div>
-        <div>
-          <label>Rating (0 - 5)</label>
-          <input
-            type="number"
-            min="0"
-            max="5"
-            name="rating"
-            onChange={handleChange}
-            value={input.rating}
-          />
-        </div>
-        <div>
-          <label> Genres </label>
-          <select
-            name="genres"
-            multiple="multiple"
-            onChange={handleGenres}
-            required
-          >
-            {genresState.map((m) => {
-              return <option value={m.id}> {m.name} </option>;
-            })}
-          </select>
-        </div>
-        <div>
-          <label>Platforms</label>
-          <input
-            type="text"
-            name="platforms"
-            onChange={handleChange}
-            value={input.platforms}
-            required
-          />
-        </div>
-        <div>
-          <input type="submit" />
-        </div>
-      </form>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="input-field">
+            <label>Name</label>
+            <input
+              placeholder="Name of the game..."
+              className="input"
+              type="text"
+              name="name"
+              onChange={handleChange}
+              value={input.name}
+              required
+            />
+          </div>
+          <div className="input-field">
+            <label>Description</label>
+            <textarea
+              className="textarea"
+              placeholder="description"
+              name="description"
+              onChange={handleChange}
+              value={input.description}
+              required
+            />
+          </div>
+          <div className="input-field">
+            <label>Released</label>
+            <input
+              className="input"
+              type="date"
+              name="released"
+              onChange={handleChange}
+              value={input.released}
+            />
+          </div>
+          <div className="input-field">
+            <label>Image</label>
+            <input
+              className="input"
+              placeholder="Add an image URL for your game..."
+              type="text"
+              name="image"
+              onChange={handleChange}
+              value={input.image}
+              required
+            />
+          </div>
+          <div className="input-field">
+            <label>Rating (0 - 5)</label>
+            <input
+              placeholder="Rate your game (1 - 5)..."
+              className="input"
+              type="number"
+              min="0"
+              max="5"
+              name="rating"
+              onChange={handleChange}
+              value={input.rating}
+            />
+          </div>
+          <div className="input-field">
+            <label> Genres </label>
+            <div className="custom-select">
+              <select
+                name="genres"
+                multiple="multiple"
+                onChange={handleGenres}
+                required
+              >
+                {genresState.map((m) => {
+                  return <option value={m.id}> {m.name} </option>;
+                })}
+              </select>
+            </div>
+          </div>
+          <div className="extra-text">
+            Hold the CTRL key to select multple genres
+          </div>
+          <div className="input-field">
+            <label>Platforms</label>
+            <input
+              className="input"
+              placeholder="Select the platforms of your game..."
+              type="text"
+              name="platforms"
+              onChange={handleChange}
+              value={input.platforms}
+              required
+            />
+          </div>
+          <div className="input-field">
+            <button className="input" type="submit">
+              <span>SUBMIT</span>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

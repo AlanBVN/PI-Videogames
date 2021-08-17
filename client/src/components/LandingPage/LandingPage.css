@@ -1,0 +1,5 @@
+.container-landing{
+    background-image: url("../../img/landinpageeimage.jpg");
+    background-repeat: no-repeat;
+    z-index: 1;
+}

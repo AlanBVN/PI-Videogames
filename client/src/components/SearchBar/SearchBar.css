@@ -45,7 +45,7 @@ background: #FF4C29;
 
 }
 
-::placeholder {
+.search-txt::placeholder {
     color: white;
 }
 

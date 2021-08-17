@@ -6,7 +6,7 @@
     border-radius: 5px;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-        font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -57,7 +57,7 @@
 
 .card-container:hover {
 transform: scale(1.05);
-transition: transform .15s ease-in-out;
+transition: transform .08s ease-in-out;
 
 }
 
