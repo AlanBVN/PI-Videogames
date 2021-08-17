@@ -9,31 +9,31 @@ router.get("/", async (req, res, next) => {
 
   try {
     if (!name) {
-      // const apiVideogamesPromise = await axios.get(
-      //   "https://api.rawg.io/api/games?key=7cd9a2674c864e9e827d633e3bd06620&page_size=40"
-      // );
-      // const apiVideogamesPromise2 = await axios.get(
-      //   "https://api.rawg.io/api/games?key=7cd9a2674c864e9e827d633e3bd06620&page=2&page_size=40"
-      // );
-      // const apiVideogamesPromise3 = await axios.get(
-      //   "https://api.rawg.io/api/games?key=7cd9a2674c864e9e827d633e3bd06620&page=3&page_size=40"
-      // );
+      const apiVideogamesPromise = await axios.get(
+        "https://api.rawg.io/api/games?key=7cd9a2674c864e9e827d633e3bd06620&page_size=40"
+      );
+      const apiVideogamesPromise2 = await axios.get(
+        "https://api.rawg.io/api/games?key=7cd9a2674c864e9e827d633e3bd06620&page=2&page_size=40"
+      );
+      const apiVideogamesPromise3 = await axios.get(
+        "https://api.rawg.io/api/games?key=7cd9a2674c864e9e827d633e3bd06620&page=3&page_size=40"
+      );
 
       const dbVideogamesPromise = await Videogame.findAll({
         include: Genre,
       });
 
-      // let apiVideogames = apiVideogamesPromise.data.results;
-      // let apiVideogames2 = apiVideogamesPromise2.data.results;
-      // let apiVideogames3 = apiVideogamesPromise3.data.results;
+      let apiVideogames = apiVideogamesPromise.data.results;
+      let apiVideogames2 = apiVideogamesPromise2.data.results;
+      let apiVideogames3 = apiVideogamesPromise3.data.results;
 
-      // let allVideogames = apiVideogames.concat(
-      //   apiVideogames2,
-      //   apiVideogames3,
-      //   dbVideogamesPromise
-      // );
+      let allVideogames = apiVideogames.concat(
+        apiVideogames2,
+        apiVideogames3,
+        dbVideogamesPromise
+      );
 
-      let finalData = dbVideogamesPromise.map((r) => {
+      let finalData = allVideogames.map((r) => {
         return {
           id: r.id,
           name: r.name,
