@@ -1,3 +1,23 @@
 nav {
-    margin: 20px;
+    margin: 12px;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav button {
+    outline: none;
+    border: none;
+    margin-left: 5px;
+    padding: 9px 12px;
+    font-weight: bold;
+    background-color: #082032;
+    color: #FF4C29;
+    cursor: pointer;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.17s ease-in;
+}
+
+nav button:hover {
+        background-color: #FF4C29;
+    color: #082032;
 }
