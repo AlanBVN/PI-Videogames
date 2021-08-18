@@ -15,7 +15,6 @@ export default function Nav() {
             <a href="/home">Home</a>
             <a href="/addgame">Add game</a>
             <a href="/home">About</a>
-            <i class="fas fa-camera"></i>
           </div>
           <button onClick={() => setShowLinks(!showLinks)}>
             <FontAwesomeIcon icon={faBars} />
