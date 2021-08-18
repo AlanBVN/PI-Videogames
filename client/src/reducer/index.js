@@ -98,10 +98,12 @@ function rootReducer(state = initialState, action) {
 
             orderedBy: action.payload,
           };
-           case "ALL":
-                    return {...state, filteredGames: state.videogames,
-                    orderedBy: action.payload
-                } 
+        case "ALL":
+          return {
+            ...state,
+            filteredGames: state.videogames,
+            orderedBy: action.payload,
+          };
         default:
           return state.videogames;
       }

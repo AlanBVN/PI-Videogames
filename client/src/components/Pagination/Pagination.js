@@ -4,7 +4,7 @@ function Pagination({ postsPerPage, totalPosts, setCurrentPage }) {
   const p = [];
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    p.push(i);
+    p.push(i); //math.ceil redondea para arriba.
   }
   function paginate(number) {
     setCurrentPage(number);
