@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./CardDetails.css";
 
-// {props.name} {props.image} {props.name} {props.genres?.join(" - ")} {props.description}
-// {props.platforms} {props.released} {props.rating}
 export default function CardDetails(props) {
   return (
     <>

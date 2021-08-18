@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { getGamesGenre, postVideogame } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Form.css";
 
 export default function Form() {

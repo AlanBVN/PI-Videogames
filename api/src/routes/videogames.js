@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
         return {
           id: r.id,
           name: r.name,
-          image: r.background_image ? r.background_image : r.image,
+          image: r.background_image ? r.background_image : r.image, //esto es porque me tomaba como undefined las imagenes que recibia por la database porque venian como image y no como background image
           rating: Math.round(r.rating),
           genres: r.genres.map((r) => r.name),
         };

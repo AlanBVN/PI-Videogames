@@ -131,13 +131,17 @@ height: 100px;
     width: 90%;
     
 }
+
+.form-container{
+width: 80%;
+margin-bottom: 30px;
+margin-top: 10px;
+}
 }
 @media only screen and (max-width: 750){
     .form-container .form {
-    width: 90%;
-    
+    width: 90%;   
 }
-
 }
 @media only screen and (max-width: 650px){
     .form-container .form {

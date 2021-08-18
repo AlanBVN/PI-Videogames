@@ -33,12 +33,18 @@ export default function Home() {
     } else {
       setPosts(filteredGames);
     }
+    setCurrentPage(1);
   }, [videogames, filteredGames, filteredBy, orderBy]);
 
   return (
     <div>
       <div>
         <Filters />
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={posts.length}
+          setCurrentPage={setCurrentPage}
+        />
         <div className="container">
           {currentPosts.map((game) => (
             <div key={game.id}>
@@ -53,11 +59,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={posts.length}
-          setCurrentPage={setCurrentPage}
-        />
       </div>
     </div>
   );

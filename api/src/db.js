@@ -41,6 +41,7 @@ const { Videogame, Genre } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
 Videogame.belongsToMany(Genre, { through: "videogameGenre" });
 Genre.belongsToMany(Videogame, { through: "videogameGenre" });
 

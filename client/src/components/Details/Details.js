@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getGamesById } from "../../actions";
 import CardDetails from "../CardDetails/CardDetails";
+import "./Details.css";
 
 export default function Details(props) {
   const id = props.match.params.id;
@@ -14,7 +15,7 @@ export default function Details(props) {
   }, [id]);
 
   if (id != videogame.id) {
-    return <h1>Loading...</h1>;
+    return <h1 className="loading-stuff">Loading...</h1>;
   } else {
     return (
       <>

@@ -52,6 +52,7 @@ router.get("/:idVideogame", async (req, res, next) => {
       } = findByDb;
 
       const fixedDate = released.toLocaleDateString();
+
       const mappedByDb = {
         id,
         name,
