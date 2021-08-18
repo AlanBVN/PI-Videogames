@@ -75,11 +75,11 @@ body {
 @media only screen and (max-width: 650px){
   .Navbar .leftSide button {
   display: flex; 
-  z-index: 1;
+  z-index: 5;
 }
 .Navbar .leftSide .nav-links {
   display: none; 
-  z-index: 3;
+  z-index: 10;
 }
 
 .Navbar .leftSide #hidden {

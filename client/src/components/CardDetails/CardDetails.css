@@ -96,7 +96,7 @@ flex-direction: column;
     }
     .left {
         width: 85%;
-        z-index: 2;
+        z-index: -3;
     }
     .right {
         width: 85%;
@@ -104,4 +104,9 @@ flex-direction: column;
         margin-top: -110px;
         margin-bottom: 30px
     }
+    .left img{
+    z-index: 1;
+
+
+}
 }
