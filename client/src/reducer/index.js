@@ -98,6 +98,22 @@ function rootReducer(state = initialState, action) {
 
             orderedBy: action.payload,
           };
+        case "API":
+          return {
+            ...state,
+            filteredGames: [...state.videogames].filter(
+              (r) => typeof r.id === "number"
+            ),
+            orderedBy: action.payload,
+          };
+        case "DB":
+          return {
+            ...state,
+            filteredGames: [...state.videogames].filter(
+              (r) => typeof r.id !== "number"
+            ),
+            orderedBy: action.payload,
+          };
         case "ALL":
           return {
             ...state,

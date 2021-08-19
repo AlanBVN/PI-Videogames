@@ -33,6 +33,8 @@ export default function Filters() {
           <option value="Z-A">Z - A</option>
           <option value="ASC"> Higher rating</option>
           <option value="DESC"> Lower rating</option>
+          <option value="API"> Games by API</option>
+          <option value="DB"> Games by DB</option>
         </select>
       </div>
       <div className="select2">
