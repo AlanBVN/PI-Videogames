@@ -16,9 +16,10 @@ export default function LandingPage() {
         <section className="full-page">
           <div className="full-inner">
             <div className="content">
+              <h1 className="landing-title"> theGumers </h1>
               <h1> Welcome to the site </h1>
               <Link to="/home">
-                <button className="btn">LETS PLAY!</button>
+                <button className="btn">LET'S PLAY!</button>
               </Link>
             </div>
           </div>

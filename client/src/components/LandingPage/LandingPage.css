@@ -56,3 +56,10 @@ display:table-cell;
 
     
 }
+
+.content .landing-title{
+    font-size: 45px;
+    text-transform: none;
+    color: #FF4C29;
+
+}
