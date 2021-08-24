@@ -12,7 +12,7 @@ export default function Form() {
     rating: "",
     platforms: "",
     image: "",
-    genres: [],
+    genres: [], //tengo q pushear aca
   });
 
   console.log(input);
