@@ -15,16 +15,12 @@ export default function Footer() {
                 <h4 className="h4-footer">About</h4>
                 <ul className="ul-footer">
                   <li>
-                    <a href="/">about us</a>
-                  </li>
-                  <li>
-                    <a href="/">our services</a>
-                  </li>
-                  <li>
-                    <a href="/">privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="/">affiliate program</a>
+                    <p>
+                      This was my individual project in Henry's bootcamp. I
+                      developed this application that uses the video game API
+                      from rawg.io and let the user create, search and filter
+                      any game, from the api or the DB.
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -32,30 +28,24 @@ export default function Footer() {
                 <h4 className="h4-footer">Technologies</h4>
                 <ul className="ul-footer">
                   <li>
-                    <a href="/">about us</a>
-                  </li>
-                  <li>
-                    <a href="/">our services</a>
-                  </li>
-                  <li>
-                    <a href="/">privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="/">affiliate program</a>
+                    <p>
+                      JavaScript, React, Redux, NodeJS, Express, PostgresSQL,
+                      Sequelize
+                    </p>
                   </li>
                 </ul>
               </div>
               <div className="col-footer">
                 <h4 className="h4-footer">Contact me</h4>
                 <ul className="ul-footer">
-                  <a href="/">
+                  <a href="https://www.linkedin.com/in/alan-bilvinas/">
                     <FontAwesomeIcon
                       icon={faLinkedin}
                       className="contact-icons"
                     />
                   </a>
 
-                  <a href="/">
+                  <a href="https://github.com/AlanBVN">
                     <FontAwesomeIcon
                       icon={faGithub}
                       className="contact-icons"

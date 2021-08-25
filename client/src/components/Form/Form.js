@@ -3,6 +3,7 @@ import { getGamesGenre, postVideogame } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./Form.css";
+import Footer from "../Footer/Footer";
 
 export default function Form() {
   const [input, setInput] = useState({
@@ -147,6 +148,7 @@ export default function Form() {
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }
