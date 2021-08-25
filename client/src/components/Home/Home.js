@@ -6,6 +6,7 @@ import "./Home.css";
 import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";
 import { getAllVideogames } from "../../actions";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
   const videogames = useSelector((store) => store.videogames);
@@ -60,6 +61,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

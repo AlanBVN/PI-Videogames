@@ -1,0 +1,47 @@
+.body-footer {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.Footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.Footer .footer-left {
+  flex: 50%;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+
+}
+
+.Footer .footer-right {
+  flex: 50%;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Footer .span-footer {
+    color: white
+}
+
+.Footer .footer-right .description-container{
+    position: relative;
+max-width: 470px;
+
+
+
+}
+.Footer .footer-right .description-container span{
+font-size: 10px;
+color: white;
+margin: 1px;
+}
