@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./Footer.css";
 
 export default function Footer() {
@@ -6,18 +9,67 @@ export default function Footer() {
     <>
       <div className="body-footer">
         <div className="Footer">
-          <div className="footer-left">
-            <span className="span-footer">LEFT</span>
-          </div>
+          <div className="container-footer">
+            <div className="row-footer">
+              <div className="col-footer">
+                <h4 className="h4-footer">About</h4>
+                <ul className="ul-footer">
+                  <li>
+                    <a href="/">about us</a>
+                  </li>
+                  <li>
+                    <a href="/">our services</a>
+                  </li>
+                  <li>
+                    <a href="/">privacy policy</a>
+                  </li>
+                  <li>
+                    <a href="/">affiliate program</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-footer">
+                <h4 className="h4-footer">Technologies</h4>
+                <ul className="ul-footer">
+                  <li>
+                    <a href="/">about us</a>
+                  </li>
+                  <li>
+                    <a href="/">our services</a>
+                  </li>
+                  <li>
+                    <a href="/">privacy policy</a>
+                  </li>
+                  <li>
+                    <a href="/">affiliate program</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-footer">
+                <h4 className="h4-footer">Contact me</h4>
+                <ul className="ul-footer">
+                  <a href="/">
+                    <FontAwesomeIcon
+                      icon={faLinkedin}
+                      className="contact-icons"
+                    />
+                  </a>
 
-          <div className="footer-right">
-            <div className="description-container">
-              <span>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.{" "}
-              </span>
+                  <a href="/">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="contact-icons"
+                    />
+                  </a>
+
+                  <a href="/">
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className="contact-icons"
+                    />
+                  </a>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
