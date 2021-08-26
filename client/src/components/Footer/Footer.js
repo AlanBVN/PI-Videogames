@@ -18,8 +18,9 @@ export default function Footer() {
                     <p>
                       This was my individual project in Henry's bootcamp. I
                       developed this application that uses the video game API
-                      from rawg.io and let the user create, search and filter
-                      any game, from the api or the DB.
+                      from rawg.io. It lets the user create their own
+                      videogames, also search and filter any existing game, from
+                      the api or the DB.
                     </p>
                   </li>
                 </ul>

@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./CardDetails.css";
+import Footer from "../Footer/Footer";
 
 export default function CardDetails(props) {
   return (
@@ -43,6 +44,7 @@ export default function CardDetails(props) {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     </>
   );
