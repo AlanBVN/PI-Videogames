@@ -4,6 +4,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./CardDetails.css";
 import Footer from "../Footer/Footer";
 
+
 export default function CardDetails(props) {
   return (
     <>

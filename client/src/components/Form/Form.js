@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import "./Form.css";
 import Footer from "../Footer/Footer";
 
+
 export default function Form() {
   const [input, setInput] = useState({
     name: "",
